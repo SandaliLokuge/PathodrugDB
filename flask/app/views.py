@@ -9,19 +9,7 @@ def index():
 
 @app.route("/query",methods=['GET', 'POST'])
 def query():
-    if request.method == 'GET':
-        connection=mysql.connector.connect(
-            user="root", password="sdl_sql2", database="PathodrugDB",port=3306,host="mysqldb"
-        )
-        print("DB connected")
-
-        cursor=connection.cursor()
-        cursor.execute("SELECT * FROM Gene")
-        genes = cursor.fetchall()
-        connection.close()
-        print(genes)
-
-        return render_template('query.html')
+    return render_template('query.html')
 
 @app.route("/statistics",methods = ['GET'])
 def statistics():
